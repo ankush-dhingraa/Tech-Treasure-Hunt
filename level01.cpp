@@ -1,61 +1,55 @@
 #include <iostream>
-#include <string>
-using namespace std;
+#include <vector>
 
-string encrypt(const string& text, int shift) {
-    string encrypted = text;
-    for (char& c : encrypted) {
-        c += shift;
+void bubbleSort(std::vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 0; i < n - 1; ++i) {
+        for (int j = 0; j < n - i - 1; ++j) {
+            if (arr[j] > arr[j + 1]) {
+                std::swap(arr[j], arr[j + 1]);
+            }
+        }
     }
-    return encrypted;
 }
 
-string decrypt(const string& text, int shift) {
-    string decrypted = text;
-    for (char& c : decrypted) {
-        c -= shift;
+std::vector<int> arithmeticCalculation(const std::vector<int>& arr) {
+    std::vector<int> result;
+    for (int x : arr) {
+        // Example arithmetic operation: square each element and then add 5
+        result.push_back((x * x) + 5);
     }
-    return decrypted;
+    return result;
+}
+
+std::vector<int> filterValues(const std::vector<int>& arr) {
+    std::vector<int> filtered;
+    for (int x : arr) {
+        if (x >= 1 && x <= 20) {
+            filtered.push_back(x);
+        }
+    }
+    return filtered;
 }
 
 int main() {
-    int choice;
-    string password;
-    int shift;
-    
-    do {
-        cout << "\nMenu:\n";
-        cout << "1. Encrypt Password\n";
-        cout << "2. Decrypt Password\n";
-        cout << "3. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-        
-        switch (choice) {
-            case 1:
-                cout << "Enter password to encrypt: ";
-                cin >> password;
-                cout << "Enter shift value: ";
-                cin >> shift;
-                cout << "Encrypted Password: " << encrypt(password, shift) << endl;
-                break;
-            
-            case 2:
-                cout << "Enter password to decrypt: ";
-                cin >> password;
-                cout << "Enter shift value: ";
-                cin >> shift;
-                cout << "Decrypted Password: " << decrypt(password, shift) << endl;
-                break;
-            
-            case 3:
-                cout << "Exiting the program.\n";
-                break;
-            
-            default:
-                cout << "Invalid choice. Please try again.\n";
-        }
-    } while (choice != 3);
-    
+    // Sample input list
+    std::vector<int> inputList = {15, 3, 8, 22, 1, 19, 5, 12, 0, 25};
+
+    // Step 1: Sort the list
+    bubbleSort(inputList);
+
+    // Step 2: Perform arithmetic calculations
+    std::vector<int> calculatedValues = arithmeticCalculation(inputList);
+
+    // Step 3: Filter values between 1 and 20
+    std::vector<int> filteredValues = filterValues(calculatedValues);
+
+    // Print the final result
+    std::cout << "Filtered values between 1 and 20: ";
+    for (int value : filteredValues) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
