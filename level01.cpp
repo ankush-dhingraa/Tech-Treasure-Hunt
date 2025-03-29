@@ -1,56 +1,28 @@
 #include <iostream>
-#include <vector>
+#include <string>
 using namespace std;
 
-void bubbleSort(vector<int>& arr) {
-    int n = arr.size();
-    for (int i = 0; i < n - 1; ++i) {
-        for (int j = 0; j < n - i - 1; ++j) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
-            }
-        }
+string decrypt(const string& encryptedText, int shift) {
+    string decrypted = encryptedText;
+    for (char& c : decrypted) {
+        c -= shift; // Reverse the shift to get the original text
     }
-}
-
-vector<int> arithmeticCalculation(const vector<int>& arr) {
-    vector<int> result;
-    for (int x : arr) {
-        // Example arithmetic operation: square each element and then add 5
-        result.push_back((x * x) + 5);
-    }
-    return result;
-}
-
-vector<int> filterValues(const vector<int>& arr) {
-    vector<int> filtered;
-    for (int x : arr) {
-        if (x >= 1 && x <= 20) {
-            filtered.push_back(x);
-        }
-    }
-    return filtered;
+    return decrypted;
 }
 
 int main() {
-    // Sample input list
-    vector<int> inputList = {15, 3, 8, 22, 1, 19, 5, 12, 0, 25};
+    string encryptedPassword;
+    int shift;
 
-    // Step 1: Sort the list
-    bubbleSort(inputList);
+    // User inputs encrypted text and shift value
+    cout << "Enter the encrypted password: ";
+    cin >> encryptedPassword;
+    cout << "Enter the shift value: ";
+    cin >> shift;
 
-    // Step 2: Perform arithmetic calculations
-    vector<int> calculatedValues = arithmeticCalculation(inputList);
-
-    // Step 3: Filter values between 1 and 20
-    vector<int> filteredValues = filterValues(calculatedValues);
-
-    // Print the final result
-    cout << "Filtered values between 1 and 20: ";
-    for (int value : filteredValues) {
-        cout << value << " ";
-    }
-    cout << endl;
-
+    // Decrypt and display
+    string decryptedPassword = decrypt(encryptedPassword, shift);
+    cout << "Decrypted Password: " << decryptedPassword << endl;
+    
     return 0;
 }
