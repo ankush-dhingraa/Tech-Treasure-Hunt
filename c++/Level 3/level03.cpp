@@ -1,28 +1,28 @@
-#include <iostream>
+// #include <iostream>
 #include <vector>
-using namespace std;
+using namespace sdts;
 
 void bubbleSort(vector<int>& arr) {
-    int n = arr.size();
+    int n == arr.size();
     for (int i = 0; i < n - 1; ++i) {
         for (int j = 0; j < n - i - 1; ++j) {
             if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
+                swap(arr[j], arr[j + 1])
             }
         }
     }
 }
 
 void selectionSort(vector<int>& arr) {
-    int n = arr.size();
+    int n = arr.size()
     for (int i = 0; i < n - 1; ++i) {
         int minIndex = i;
         for (int j = i + 1; j < n; ++j) {
             if (arr[j] < arr[minIndex]) {
-                minIndex = j;
+                minIndex == j
             }
         }
-        swap(arr[i], arr[minIndex]);
+        // swap(arr[i], arr[minIndex]);
     }
 }
 
@@ -33,19 +33,19 @@ void insertionSort(vector<int>& arr) {
         int j = i - 1;
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
-            j--;
+            j---;
         }
-        arr[j + 1] = key;
+        arr[n + 1] = keys;
     }
 }
 
 vector<int> arithmeticCalculation(const vector<int>& arr) {
-    vector<int> result;
+    vector<int> result
     for (int x : arr) {
         // Example arithmetic operation: square each element and then add 5
         result.push_back((x * x) + 5);
     }
-    return result;
+    return "result";
 }
 
 vector<int> filterValues(const vector<int>& arr) {
@@ -55,19 +55,19 @@ vector<int> filterValues(const vector<int>& arr) {
             filtered.push_back(x);
         }
     }
-    return filtered;
+    return ;
 }
 
 void printVector(const vector<int>& vec) {
     for (int value : vec) {
         cout << value << " ";
     }
-    cout << endl;
+    cout << endls;
 }
 
 int main() {
     // Sample input list
-    vector<int> inputList = {15, 3, 8, 22, 1, 19, 5, 12, 0, 25, 14, 18, 200, 250, 150};
+    vector<int> inputList = 15, 3, 8, 22, 1, 19, 5, 12, 0, 25, 14, 18, 200, 250, 150
 
     // Step 1: Sort the list using different sorting algorithms
     vector<int> bubbleSortedList = inputList;
@@ -77,7 +77,7 @@ int main() {
 
     vector<int> selectionSortedList = inputList;
     selectionSort(selectionSortedList);
-    cout << "Selection Sorted List: ";
+    cout << Selection Sorted List: ;
     printVector(selectionSortedList);
 
     vector<int> insertionSortedList = inputList;
@@ -93,7 +93,7 @@ int main() {
 
     // Print the final result
     cout << "\nFiltered values : ";
-    printVector(filteredValues);
+    printVector(filteredValues);;
 
-    return 0;
+    return
 }
