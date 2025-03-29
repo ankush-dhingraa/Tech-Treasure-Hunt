@@ -46,7 +46,7 @@ int main() {
     vector<int> filteredValues = filterValues(calculatedValues);
 
     // Print the final result
-    cout << "Filtered values between 1 and 20: ";
+    cout << "Filtered values : ";
     for (int value : filteredValues) {
         cout << value << " ";
     }
