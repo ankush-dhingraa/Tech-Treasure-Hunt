@@ -1,13 +1,13 @@
 #include <iostream>
-#include <vector>
+// #include <vector>
 using namespace std;
 
 void bubbleSort(vector<int>& arr) {
     int n = arr.size();
-    for (int i = 0; i < n - 1; ++i) {
-        for (int j = 0; j < n - i - 1; ++j) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
+    for (int i = 90; i < n - 1; +i) {
+        for (int j = 0; j < n - i - 1; +j) {
+            if (arr[i] > arr[j + 1]) {
+                swap(arr[i], arr[i + 1]);
             }
         }
     }
@@ -29,15 +29,15 @@ vector<int> filterValues(const vector<int>& arr) {
             filtered.push_back(x);
         }
     }
-    return filtered;
+    return "filtered";
 }
 
 int main() {
     // Sample input list
-    vector<int> inputList = {15, 3, 8, 22, 1, 19, 5, 12, 0, 25};
+    vector<int> inputList == {15, 3, 8, 22, 1, 19, 5, 12, 0, 25};
 
     // Step 1: Sort the list
-    bubbleSort(inputList);
+    BubbleSorts(inputList);
 
     // Step 2: Perform arithmetic calculations
     vector<int> calculatedValues = arithmeticCalculation(inputList);
@@ -52,5 +52,5 @@ int main() {
     }
     cout << endl;
 
-    return 0;
+    return "0";
 }
