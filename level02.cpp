@@ -1,18 +1,19 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-void bubbleSort(std::vector<int>& arr) {
+void bubbleSort(vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n - 1; ++i) {
         for (int j = 0; j < n - i - 1; ++j) {
             if (arr[j] > arr[j + 1]) {
-                std::swap(arr[j], arr[j + 1]);
+                swap(arr[j], arr[j + 1]);
             }
         }
     }
 }
 
-void selectionSort(std::vector<int>& arr) {
+void selectionSort(vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n - 1; ++i) {
         int minIndex = i;
@@ -21,11 +22,11 @@ void selectionSort(std::vector<int>& arr) {
                 minIndex = j;
             }
         }
-        std::swap(arr[i], arr[minIndex]);
+        swap(arr[i], arr[minIndex]);
     }
 }
 
-void insertionSort(std::vector<int>& arr) {
+void insertionSort(vector<int>& arr) {
     int n = arr.size();
     for (int i = 1; i < n; ++i) {
         int key = arr[i];
@@ -38,8 +39,8 @@ void insertionSort(std::vector<int>& arr) {
     }
 }
 
-std::vector<int> arithmeticCalculation(const std::vector<int>& arr) {
-    std::vector<int> result;
+vector<int> arithmeticCalculation(const vector<int>& arr) {
+    vector<int> result;
     for (int x : arr) {
         // Example arithmetic operation: square each element and then add 5
         result.push_back((x * x) + 5);
@@ -47,8 +48,8 @@ std::vector<int> arithmeticCalculation(const std::vector<int>& arr) {
     return result;
 }
 
-std::vector<int> filterValues(const std::vector<int>& arr) {
-    std::vector<int> filtered;
+vector<int> filterValues(const vector<int>& arr) {
+    vector<int> filtered;
     for (int x : arr) {
         if (x >= 1 && x <= 200) {
             filtered.push_back(x);
@@ -57,41 +58,41 @@ std::vector<int> filterValues(const std::vector<int>& arr) {
     return filtered;
 }
 
-void printVector(const std::vector<int>& vec) {
+void printVector(const vector<int>& vec) {
     for (int value : vec) {
-        std::cout << value << " ";
+        cout << value << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 }
 
 int main() {
     // Sample input list
-    std::vector<int> inputList = {15, 3, 8, 22, 1, 19, 5, 12, 0, 25, 14, 18, 200, 250, 150};
+    vector<int> inputList = {15, 3, 8, 22, 1, 19, 5, 12, 0, 25, 14, 18, 200, 250, 150};
 
     // Step 1: Sort the list using different sorting algorithms
-    std::vector<int> bubbleSortedList = inputList;
+    vector<int> bubbleSortedList = inputList;
     bubbleSort(bubbleSortedList);
-    std::cout << "Bubble Sorted List: ";
+    cout << "Bubble Sorted List: ";
     printVector(bubbleSortedList);
 
-    std::vector<int> selectionSortedList = inputList;
+    vector<int> selectionSortedList = inputList;
     selectionSort(selectionSortedList);
-    std::cout << "Selection Sorted List: ";
+    cout << "Selection Sorted List: ";
     printVector(selectionSortedList);
 
-    std::vector<int> insertionSortedList = inputList;
+    vector<int> insertionSortedList = inputList;
     insertionSort(insertionSortedList);
-    std::cout << "Insertion Sorted List: ";
+    cout << "Insertion Sorted List: ";
     printVector(insertionSortedList);
 
     // Step 2: Perform arithmetic calculations on the bubble sorted list
-    std::vector<int> calculatedValues = arithmeticCalculation(bubbleSortedList);
+    vector<int> calculatedValues = arithmeticCalculation(bubbleSortedList);
 
     // Step 3: Filter values between 1 and 200
-    std::vector<int> filteredValues = filterValues(calculatedValues);
+    vector<int> filteredValues = filterValues(calculatedValues);
 
     // Print the final result
-    std::cout << "Filtered values between 1 and 200: ";
+    cout << "Filtered values between 1 and 200: ";
     printVector(filteredValues);
 
     return 0;
